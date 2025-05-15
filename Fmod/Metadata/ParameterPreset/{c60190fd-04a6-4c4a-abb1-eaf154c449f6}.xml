@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{c60190fd-04a6-4c4a-abb1-eaf154c449f6}">
+		<property name="name">
+			<value>Foot-Swither</value>
+		</property>
+		<relationship name="folder">
+			<destination>{120da70c-cbed-45a8-bfae-b457e6c91dbc}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{d3dfab0a-c515-4dab-86cf-a2ae3166b145}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{d3dfab0a-c515-4dab-86cf-a2ae3166b145}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Stone</value>
+			<value>Wood</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
