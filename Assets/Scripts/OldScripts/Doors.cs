@@ -5,18 +5,23 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Doors_new : MonoBehaviour, IInteractable
+public class Doors : MonoBehaviour, IInteractable
 {
-    private AudioSystem audioSystem;
-
     public float rotationSpeed = 90f; // Degrees per second
     bool doorsOpened = true;
     bool isRotating = false;
 
-    private void Start()
-    {
-        audioSystem = FindObjectOfType<AudioSystem>();
-    }
+    ////////////////// FMOD Section ///////////////////
+
+    // Door's sample //
+    FMOD.Studio.EventInstance DoorsSound;
+    public EventReference DoorsEvent;
+    
+    // Room's Snapshot //
+    FMOD.Studio.EventInstance InsideRoom;
+    public EventReference insideRoomSnap;
+
+    ////////////////// FMOD Section End ///////////////////
 
     public void Interact()
     {
@@ -64,25 +69,60 @@ public class Doors_new : MonoBehaviour, IInteractable
         isRotating = false;
     }
 
+    void PlaySound()
+    {
+        if (doorsOpened == true)
+        {            
+            DoorsSound = FMODUnity.RuntimeManager.CreateInstance(DoorsEvent);
+            DoorsSound.setParameterByNameWithLabel("Doors", "DoorClose");
+            DoorsSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject.transform));
+            DoorsSound.start();
+            //FMODUnity.RuntimeManager.PlayOneShot(DoorsEvent);
+        }
+        else
+        {
+            DoorsSound.setParameterByNameWithLabel("Doors", "DoorOpen");
+            DoorsSound.start();
+            DoorsSound.release();
+        }
+    }
+
+    void RoomsSnap()
+    {
+        RoomAmbient roomAmbient = FindObjectOfType<RoomAmbient>();
+
+        if (roomAmbient.ambientActivated == true && doorsOpened == false)
+        {
+            Debug.Log("im in!");
+            InsideRoom = FMODUnity.RuntimeManager.CreateInstance(insideRoomSnap);
+            InsideRoom.start();
+        }
+        else
+        {
+            if (roomAmbient.ambientActivated == true && doorsOpened == true)
+            {
+                Debug.Log("it works");
+                InsideRoom.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                InsideRoom.release();
+            }
+        }
+    }
+
     void DoorsInteract()
     {
         if (doorsOpened == true)
         {
             StartCoroutine(CloseOverTime());
-            audioSystem.doorsName = gameObject.name;
-            audioSystem.PlayDoorSound();
+            PlaySound();
             doorsOpened = false;
-            if(audioSystem.roomsAmbientActivated)
-                audioSystem.RoomsSnap();
+            RoomsSnap();
         }
         else
         {
             StartCoroutine(OpenOverTime());
-            audioSystem.doorsName = gameObject.name;
-            audioSystem.PlayDoorSound();
+            PlaySound();
             doorsOpened = true;
-            if (audioSystem.roomsAmbientActivated)
-                audioSystem.RoomsSnap();
+            RoomsSnap();
         }
     }
 }

@@ -651,6 +651,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 199009197791819176, guid: cb181bc6c302bca40929333077286a04, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 199547501513172830, guid: cb181bc6c302bca40929333077286a04, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -2257,6 +2261,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a1e7f444dae7444bbd7d1e18a737af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorsEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1001 &511914473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2650,6 +2661,7 @@ GameObject:
   - component: {fileID: 613997993}
   - component: {fileID: 613997990}
   - component: {fileID: 613997989}
+  - component: {fileID: 613997994}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -2819,6 +2831,39 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &613997994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613997984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5662db7a78ed10944a62b27bb1056215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstepsEvent:
+    Guid:
+      Data1: -684016321
+      Data2: 1201126214
+      Data3: 1848026766
+      Data4: -925282776
+    Path: event:/Footsteps
+  jumpEvent:
+    Guid:
+      Data1: 1330379547
+      Data2: 1120747069
+      Data3: -889372540
+      Data4: -1092641150
+    Path: event:/Jump
+  landEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &688602384
 GameObject:
   m_ObjectHideFlags: 0
@@ -3523,7 +3568,7 @@ Transform:
   m_GameObject: {fileID: 862222103}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 400.433, y: 10.61, z: 315.923}
+  m_LocalPosition: {x: 400.924, y: 8.211, z: 315.292}
   m_LocalScale: {x: 1.0972, y: 1.0972, z: 1.0972}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4295,6 +4340,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a1e7f444dae7444bbd7d1e18a737af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorsEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!64 &1072624435
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5288,7 +5340,7 @@ Transform:
   m_GameObject: {fileID: 1462048613}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 401.07, y: 8.66, z: 304.07}
+  m_LocalPosition: {x: 400.42, y: 8.66, z: 304.07}
   m_LocalScale: {x: 3.5357835, y: 3.5357835, z: 3.5357835}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7159,6 +7211,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a1e7f444dae7444bbd7d1e18a737af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorsEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!64 &1836824988
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8298,7 +8357,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 6
+  OverrideMinDistance: 8
   OverrideMaxDistance: 20
 --- !u!135 &1989075452
 SphereCollider:
@@ -8380,7 +8439,7 @@ Transform:
   m_GameObject: {fileID: 1989075450}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 400.727, y: 10.61, z: 315.923}
+  m_LocalPosition: {x: 400.805, y: 6.941, z: 314.506}
   m_LocalScale: {x: 1.0972, y: 1.0972, z: 1.0972}
   m_ConstrainProportionsScale: 0
   m_Children: []

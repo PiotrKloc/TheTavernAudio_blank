@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{944e785b-7808-4b37-8bbf-3bb1f273f3d8}">
+		<property name="name">
+			<value>Ambient_Pokoju</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{573d1c81-6677-4881-8711-0c79be3ef086}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{90b00650-4f48-47dc-80df-dbb1b090e308}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{29fe93ae-f6f1-4086-badd-26853fd5d389}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{573d1c81-6677-4881-8711-0c79be3ef086}">
+		<relationship name="effects">
+			<destination>{59709889-0f5b-4c60-baed-a0dce2d8473d}</destination>
+			<destination>{fb6d2a43-43af-43e5-ba0b-1f6c4b3fa947}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{90b00650-4f48-47dc-80df-dbb1b090e308}" />
+	<object class="MixerBusFader" id="{59709889-0f5b-4c60-baed-a0dce2d8473d}" />
+	<object class="SFXReverbEffect" id="{fb6d2a43-43af-43e5-ba0b-1f6c4b3fa947}" />
+</objects>
